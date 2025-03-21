@@ -1,0 +1,14 @@
+.archives ul {
+    list-style: none;
+    padding: 0;
+}
+
+.archives li {
+    margin-bottom: 5px;
+}
+
+.archives a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}

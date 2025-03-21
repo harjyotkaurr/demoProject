@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/blogpage" mode="merge"/>
+    <filter root="/content/blogpage" mode="merge"/>
+    <filter root="/content/dam/blogpage" mode="merge">
+        <exclude pattern="/content/dam/blogpage(/.*)?"/>
+        <include pattern="/content/dam/blogpage/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/blogpage/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/blogpage" mode="merge"/>
+
+    <!-- Add missing paths for ttndemo experience fragments -->
+    <filter root="/content/experience-fragments/ttndemo" mode="merge"/>
+    <filter root="/content/experience-fragments/ttndemo/us" mode="merge"/>
+    <filter root="/content/experience-fragments/ttndemo/us/en" mode="merge"/>
+    <filter root="/content/experience-fragments/ttndemo/us/en/site" mode="merge"/>
+    <filter root="/content/experience-fragments/ttndemo/us/en/site/header" mode="merge"/>
+    <filter root="/content/experience-fragments/ttndemo/us/en/site/footer" mode="merge"/>
+    <filter root="/content/experience-fragments" />
+
+</workspaceFilter>
+
+

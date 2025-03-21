@@ -1,0 +1,19 @@
+<sly data-sly-use.headerModel="com.blog.page.core.models.HeaderModel"/>
+<header id="header">
+    <div class="headLogo">
+        <div class="logo">
+            <img src="${headerModel.logo @context='uri'}" alt="Logo">
+            <h4>${headerModel.title}</h4>
+        </div>
+    </div>
+    <hr>
+    <nav>
+        <ul data-sly-list.item="${headerModel.navItems}">
+            <sly data-sly-test="${item.hideProp=='Default'}">
+                <li>
+                    <a href="${item.link @context='uri'}">${item.text}</a>
+                </li>
+            </sly>
+        </ul>
+    </nav>
+</header>

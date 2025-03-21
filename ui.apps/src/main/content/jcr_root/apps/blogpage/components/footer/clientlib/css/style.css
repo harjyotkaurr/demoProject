@@ -1,0 +1,87 @@
+/* Footer Container */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0; /* Increased padding for better spacing */
+    background-color: #f8f9fa; /* Light gray background */
+    border-top: 1px solid #ddd; /* Subtle border */
+    margin-top: 20px; /* Ensure spacing from content above */
+}
+
+/* Footer Top Section - Back to Top Link */
+.back-to-top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.back-to-top a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: blue;
+    padding: 5px 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.back-to-top a:hover {
+    color: darkblue;
+}
+
+/* Footer Navigation Links */
+/* Ensure the nav container is centered */
+.footer nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Ensure list items do not interfere with centering */
+.footer-links li {
+    display: inline-block;
+    text-align: center;
+}
+
+
+.footer-links a {
+    text-decoration: none;
+    color: blue;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+/* Footer Copyright Section */
+.footer-copyright {
+    font-size: 12px;
+    color: #666;
+    padding: 5px 0;
+    width: 100%;
+}
+
+/* Extra Text (If any) */
+.footer-line {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}

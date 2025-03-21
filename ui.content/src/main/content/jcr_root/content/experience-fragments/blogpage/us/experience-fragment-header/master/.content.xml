@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2025-03-13T10:44:59.099+05:30"
+        cq:lastModifiedBy="admin"
+        cq:tags="[experience-fragments:variation/web]"
+        cq:template="/conf/blogpage/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Experience Fragment-header"
+        sling:resourceType="blogpage/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="blogpage/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:created="{Date}2025-03-13T10:29:45.980+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2025-03-13T10:29:45.980+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="blogpage/components/form/container"
+                action="/content/usergenerated/experience-fragments/blogpage/us/experience-fragment-header/master/cq-gen1741841985985/"
+                actionType="foundation/components/form/actions/store">
+                <header
+                    jcr:created="{Date}2025-03-13T10:41:07.928+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2025-03-13T10:41:53.629+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="blogpage/components/header"
+                    links="[,]"
+                    logo="/content/dam/blogpage/ttn-logo.jpg"
+                    text="[Home,Published Blogs]"
+                    title="Bootcamp Blogs"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

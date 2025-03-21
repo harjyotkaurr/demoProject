@@ -1,0 +1,16 @@
+<sly data-sly-use.footerModel="com.blog.page.core.models.FooterModel"/>
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientLib.css @ categories='listblogs'}"/>
+
+<footer class="footer">
+<!--    <a href="#header" ><p class="footer-line">${footerModel.extraText @context='html'}</p></a>-->
+    <a href="#header">Back To Top</a>
+    <nav>
+        <ul data-sly-test="${footerModel.footerLinks}" data-sly-list.item="${footerModel.footerLinks}">
+            <li>
+                <a href="${item.link @context='uri'}">${item.text}</a>
+            </li>
+        </ul>
+    </nav>
+    <p class="footer-copyright">${footerModel.copyrightText @context='html'}</p>
+</footer>
