@@ -3,6 +3,7 @@ package com.blog.page.core.models.impl;
 import com.blog.page.core.models.BlogPost;
 import com.blog.page.core.models.PublishedBlogsModel;
 import com.blog.page.core.services.PublishedBlogsService;
+import com.blog.page.core.util.Util;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -89,8 +90,8 @@ public class PublishedBlogsModelImpl implements PublishedBlogsModel {
 
     private boolean matchesRequestedDate(String formattedDate, String requestDate) {
         try {
-            Date blogDate = DATE_FORMAT.parse(formattedDate); // Parse "MMM dd, yyyy"
-            String blogMonthYear = REQUEST_DATE_FORMAT.format(blogDate); // Convert to "MM-yyyy"
+            Date blogDate = DATE_FORMAT.parse(formattedDate); //mmm dd yyyy
+            String blogMonthYear = REQUEST_DATE_FORMAT.format(blogDate); //mm yyyy
 
             LOG.debug("Comparing blog date: {} with requested date: {}", blogMonthYear, requestDate);
             return blogMonthYear.equals(requestDate);

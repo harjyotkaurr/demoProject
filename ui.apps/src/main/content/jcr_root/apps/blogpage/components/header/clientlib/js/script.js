@@ -1,1 +1,0 @@
-console.log("Script from Header loading");

@@ -1,6 +1,7 @@
 package com.blog.page.core.servlets;
 
 
+import com.blog.page.core.util.Util;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.google.gson.JsonArray;
@@ -18,7 +19,10 @@ import javax.annotation.Nonnull;
 import javax.servlet.Servlet;
 import java.io.IOException;
 import java.util.Iterator;
-//http://localhost:4502/content/ttndemo/blognodeApi.json?page=/content/ttndemo/us/en/published-blog-page
+
+//import static com.blog.page.core.util.Util.getImagePath;
+
+//http://localhost:4502/content/ttndemo/resource.json?page=/content/ttndemo/us/en/page-1
 @Component(service = Servlet.class, name = "Blog Servlet Get", property = {
         org.osgi.framework.Constants.SERVICE_DESCRIPTION + "=Blog Servlet GET for Bootcamp",
         "sling.servlet.resourceTypes=" + "blogpage/components/structure/page",
@@ -27,6 +31,8 @@ import java.util.Iterator;
 })
 public class BlogServlet extends SlingSafeMethodsServlet {
     private static final String DEFAULT_IMAGE = "/content/dam/default.jpg";
+
+
 
     @Override
     protected void doGet(@Nonnull final SlingHttpServletRequest request, @Nonnull final SlingHttpServletResponse response) throws IOException {
@@ -50,7 +56,7 @@ public class BlogServlet extends SlingSafeMethodsServlet {
                     blogObject.addProperty("description", childPage.getProperties().get("jcr:description", "No Description"));
                     blogObject.addProperty("date", childPage.getProperties().get("jcr:created", String.class));
                     blogObject.addProperty("link", childPage.getPath() + ".html");
-                    blogObject.addProperty("image", getImagePath(childPage));
+                    blogObject.addProperty("image", Util.getImagePath(childPage));
 
                     blogArray.add(blogObject);
                 }
@@ -63,17 +69,18 @@ public class BlogServlet extends SlingSafeMethodsServlet {
         response.getWriter().write(blogArray.toString());
     }
 
-    private String getImagePath(Page childPage) {
-        String imagePath = DEFAULT_IMAGE;
-        Resource imageResource = childPage.getContentResource("root/responsivegrid/image/file/jcr:content");
+//    private String getImagePath(Page childPage) {
+//        String imagePath = DEFAULT_IMAGE;
+//        Resource imageResource = childPage.getContentResource("root/responsivegrid/image/file/jcr:content");
+//
+//        if (imageResource != null) {
+//            ValueMap properties = imageResource.getValueMap();
+//            if (properties.containsKey("jcr:data")) { // Check if binary data exists
+//                imagePath = childPage.getPath() + "/jcr:content/root/responsivegrid/image/file";
+//            }
+//        }
+//
+//        return imagePath;
+//    }
 
-        if (imageResource != null) {
-            ValueMap properties = imageResource.getValueMap();
-            if (properties.containsKey("jcr:data")) { // Check if binary data exists
-                imagePath = childPage.getPath() + "/jcr:content/root/responsivegrid/image/file";
-            }
-        }
-
-        return imagePath;
-    }
 }

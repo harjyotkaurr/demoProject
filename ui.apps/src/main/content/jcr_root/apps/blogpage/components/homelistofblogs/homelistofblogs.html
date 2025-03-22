@@ -4,34 +4,31 @@
 <div class="blog-container">
     <sly data-sly-list.blog="${model.blogs}">
         <div class="blog-card">
-            <!-- Blog Thumbnail -->
             <sly data-sly-test="${blog.image}">
                 <div class="blog-thumbnail">
                     <img src="${blog.image}" alt="${blog.title}" class="blog-image"/>
                 </div>
             </sly>
 
-            <!-- Blog Category -->
             <sly data-sly-test="${blog.category}">
                 <p class="blog-category">${blog.category}</p>
             </sly>
 
-            <!-- Blog Title -->
             <sly data-sly-test="${blog.title}">
                 <h3 class="blog-title">${blog.title}</h3>
             </sly>
 
-            <!-- Blog Date -->
+
             <sly data-sly-test="${blog.date}">
                 <p class="blog-date">${blog.date}</p>
             </sly>
 
-            <!-- Blog Description -->
+
             <sly data-sly-test="${blog.description}">
                 <p class="blog-description">${blog.description}</p>
             </sly>
 
-            <!-- Read More Link -->
+
             <sly data-sly-test="${blog.link}">
                 <a href="${blog.link}" class="read-more">Continue reading</a>
             </sly>
@@ -39,7 +36,7 @@
     </sly>
 </div>
 
-<!-- If no blogs are found, show a message -->
+
 <sly data-sly-test="${!model.blogs || model.blogs.size == 0}">
     <p class="no-blogs-message">No blogs found.</p>
 </sly>
@@ -47,7 +44,6 @@
 
 
 
-<!-- If no blogs are found, show a message -->
 <sly data-sly-test="${!model.blogs || model.blogs.size == 0}">
     <p class="no-blogs-message">No blogs found.</p>
 </sly>

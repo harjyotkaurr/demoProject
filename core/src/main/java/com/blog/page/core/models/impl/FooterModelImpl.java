@@ -30,8 +30,6 @@ public class FooterModelImpl implements FooterModel {
 //    @ValueMapValue
 //    private String extraText;
 
-//    @ChildResource(name = "footerLinks")
-//    private Resource footerLinks;
 
     @Override
     public String getCopyrightText() {
@@ -59,7 +57,7 @@ public class FooterModelImpl implements FooterModel {
                 if (text != null && link != null) {
                     Map<String, String> itemMap = new HashMap<>();
                     itemMap.put("text", text);
-                    itemMap.put("link", link + ".html"); // Ensure .html extension
+                    itemMap.put("link", link + ".html");
                     footerItems.add(itemMap);
                 }
             }

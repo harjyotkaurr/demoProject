@@ -127,18 +127,14 @@ public class HeaderModelImpl implements HeaderModel {
     @SlingObject
     private Resource componentResource;
 
-//    @Inject
-//    private Resource resource;
 
     @ValueMapValue
     private String title;
 
     @ValueMapValue
     private String logo;
-//websitename=title
-    //
-//    @ChildResource(name = "actions")  // Fix: Ensure correct path
-//    private Resource actions;
+
+
 
     @Override
     public String getTitle() {
@@ -161,7 +157,7 @@ public class HeaderModelImpl implements HeaderModel {
                 String textValue = navProperties.get("text", String.class);
                 String linkValue = navProperties.get("link", String.class);
 
-                // Fetch the linked page resource
+
                 if ( linkValue != null) {
                     PageManager pageManager = resolver.adaptTo(PageManager.class);
                     Page page = pageManager.getPage(linkValue);

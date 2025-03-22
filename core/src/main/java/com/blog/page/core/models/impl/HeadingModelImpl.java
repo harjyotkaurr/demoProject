@@ -79,16 +79,19 @@ public class HeadingModelImpl implements HeadingModel {
 
     @Override
     public String getTitle() {
+
         return title;
     }
 
     @Override
     public String getAuthor() {
+
         return author;
     }
 
     @Override
     public String getDate() {
+
         return date;
     }
 }

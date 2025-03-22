@@ -15,11 +15,21 @@ public class BlogPost {
         this.date = date != null ? date : "N/A";
     }
 
-    public String getTitle() { return title; }
-    public String getDescription() { return description; }
-    public String getImage() { return image; }
-    public String getLink() { return link; }
-    public String getDate() { return date; }
+    public String getTitle() {
+        return title;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public String getImage() {
+        return image;
+    }
+    public String getLink() {
+        return link;
+    }
+    public String getDate() {
+        return date;
+    }
 }
 
 

@@ -1,4 +1,7 @@
 /* Footer Container */
+html {
+  scroll-behavior: smooth;
+}
 .footer {
     display: flex;
     flex-direction: column;

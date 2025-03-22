@@ -26,30 +26,30 @@ public class ArchiveModelImpl implements ArchiveModel {
     @Override
     public List<Map<String, String>> getArchivedBlogs() {
         List<Map<String, String>> blogList = new ArrayList<>();
-        Set<String> uniqueMonths = new HashSet<>(); // To store unique month-year entries
+        Set<String> uniqueMonths = new HashSet<>();
 
         if (blogPagePath == null || componentResource == null) {
-            return blogList; // Return empty list if path or componentResource is not set
+            return blogList;
         }
 
         Resource blogPageResource = componentResource.getResourceResolver().getResource(blogPagePath);
 
         if (blogPageResource != null) {
-            SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy"); // e.g., "March 2025"
-            SimpleDateFormat urlFormatter = new SimpleDateFormat("MM-yyyy"); // e.g., "03-2025"
+            SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy"); //March 2025
+            SimpleDateFormat urlFormatter = new SimpleDateFormat("MM-yyyy"); //03-2025
 
             for (Resource blog : blogPageResource.getChildren()) {
                 ValueMap blogProperties = blog.getValueMap();
                 Calendar createdDate = blogProperties.get("jcr:created", Calendar.class);
 
                 if (createdDate != null) {
-                    String monthDisplay = monthFormatter.format(createdDate.getTime()); // "March 2025"
-                    String monthUrl = urlFormatter.format(createdDate.getTime()); // Fix: `.getTime()` was missing
+                    String monthDisplay = monthFormatter.format(createdDate.getTime());
+                    String monthUrl = urlFormatter.format(createdDate.getTime());
 
-                    // Construct Archive Page Link (Filtering by month)
+                    //filtering by month
                     String archivePageLink = PUBLISHED_BLOG_PAGE_URL + "?month=" + monthUrl;
 
-                    // Store unique month entries
+
                     if (uniqueMonths.add(monthUrl)) {
                         Map<String, String> blogData = new HashMap<>();
                         blogData.put("Month", monthDisplay);
