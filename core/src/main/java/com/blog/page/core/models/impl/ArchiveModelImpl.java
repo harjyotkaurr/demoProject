@@ -25,7 +25,7 @@ public class ArchiveModelImpl implements ArchiveModel {
 
     @Override
     public List<Map<String, String>> getArchivedBlogs() {
-        List<Map<String, String>> blogList = new ArrayList<>();
+        List<Map<String, String>> blogList = new ArrayList<>();//month, archibveLink
         Set<String> uniqueMonths = new HashSet<>();
 
         if (blogPagePath == null || componentResource == null) {
@@ -35,7 +35,7 @@ public class ArchiveModelImpl implements ArchiveModel {
         Resource blogPageResource = componentResource.getResourceResolver().getResource(blogPagePath);
 
         if (blogPageResource != null) {
-            SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy"); //March 2025
+            SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy"); //March 2025 the one which gets displayed
             SimpleDateFormat urlFormatter = new SimpleDateFormat("MM-yyyy"); //03-2025
 
             for (Resource blog : blogPageResource.getChildren()) {

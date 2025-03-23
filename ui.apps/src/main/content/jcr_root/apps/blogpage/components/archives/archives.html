@@ -6,12 +6,10 @@
 
 <div class="archive-container">
     <h2>Archived Blogs</h2>
-
-    =
     <ul data-sly-test="${archiveModel}">
         <sly data-sly-list.archive="${archiveModel.archivedBlogs}">
             <li>
-                <a href="${archive.ArchiveLink @ context='uri'}" target="_blank">${archive.Month}</a>
+                <a href="${archive.ArchiveLink @ context='uri'}">${archive.Month}</a>
             </li>
         </sly>
     </ul>

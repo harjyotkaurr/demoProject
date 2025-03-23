@@ -1,6 +1,10 @@
 <sly data-sly-use.model="com.blog.page.core.models.PublishedBlogsModel"/>
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"/>
 <sly data-sly-call="${clientLib.css @ categories='blog.clientlib'}"/>
+
+
+
+
 <sly data-sly-list.blog="${model.blogs}">
 
     <div class="blog-card">
@@ -11,14 +15,16 @@
                 <h3 class="blog-title">${blog.title}</h3>
             </sly>
 
+
             <sly data-sly-test="${blog.description}">
                 <p class="blog-description">${blog.description}</p>
             </sly>
 
-            <
+
             <sly data-sly-test="${blog.date}">
                 <p class="blog-date">${blog.date}</p>
             </sly>
+
 
             <sly data-sly-test="${blog.link}">
                 <a href="${blog.link}" class="read-more">Continue reading</a>
@@ -33,6 +39,55 @@
 
 </sly>
 
+
 <sly data-sly-test="${!model.blogs || model.blogs.size == 0}">
     <p class="no-blogs-message">No blogs found.</p>
 </sly>
+
+
+
+
+
+
+
+
+<!--<sly data-sly-list.blog="${model.blogs}">-->
+
+<!--    <div class="blog-card">-->
+
+<!--        <div class="blog-content">-->
+
+<!--            <sly data-sly-test="${blog.title}">-->
+<!--                <h3 class="blog-title">${blog.title}</h3>-->
+<!--            </sly>-->
+
+<!--            <sly data-sly-test="${blog.description}">-->
+<!--                <p class="blog-description">${blog.description}</p>-->
+<!--            </sly>-->
+
+<!--            <-->
+<!--            <sly data-sly-test="${blog.date}">-->
+<!--                <p class="blog-date">${blog.date}</p>-->
+<!--            </sly>-->
+
+<!--            <sly data-sly-test="${blog.link}">-->
+<!--                <a href="${blog.link}" class="read-more">Continue reading</a>-->
+<!--            </sly>-->
+<!--        </div>-->
+
+<!--        <sly data-sly-test="${blog.image}">-->
+<!--            <div class="blog-thumbnail">-->
+<!--                <img src="${blog.image}" alt="${blog.title}" class="blog-image"/>-->
+<!--            </div>-->
+<!--        </sly>-->
+
+<!--&lt;!&ndash;        <sly data-sly-test="${blog.image}">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="${blog.image}" alt="${blog.title}" class="blog-thumbnail"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </sly>&ndash;&gt;-->
+<!--    </div>-->
+
+<!--</sly>-->
+
+<!--<sly data-sly-test="${!model.blogs || model.blogs.size == 0}">-->
+<!--    <p class="no-blogs-message">No blogs found.</p>-->
+<!--</sly>-->

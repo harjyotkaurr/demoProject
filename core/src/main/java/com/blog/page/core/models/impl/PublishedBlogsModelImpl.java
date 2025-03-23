@@ -3,6 +3,7 @@ package com.blog.page.core.models.impl;
 import com.blog.page.core.models.BlogPost;
 import com.blog.page.core.models.PublishedBlogsModel;
 import com.blog.page.core.services.PublishedBlogsService;
+//import com.blog.page.core.util.Util;
 import com.blog.page.core.util.Util;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -22,6 +23,8 @@ import javax.annotation.PostConstruct;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+//
+//import static com.blog.page.core.util.Util.getImagePath;
 
 @Model(
         adaptables = SlingHttpServletRequest.class,
@@ -71,7 +74,7 @@ public class PublishedBlogsModelImpl implements PublishedBlogsModel {
             Page blogPage = children.next();
             String title = blogPage.getTitle();
             String description = blogPage.getProperties().get("jcr:description", String.class);
-            String image = getImagePath(blogPage);
+            String image = Util.getImagePath(request, blogPage);
             String link = blogPage.getPath() + ".html";
             String date = getFormattedDate(blogPage);
 
@@ -103,24 +106,24 @@ public class PublishedBlogsModelImpl implements PublishedBlogsModel {
 
 
 
-    private String getImagePath(Page childPage) {
-        String imagePath = DEFAULT_IMAGE;
-        Resource imageResource = childPage.getContentResource("root/container/responsivegrid/image/file/jcr:content");
-
-        if (imageResource != null) {
-            ValueMap properties = imageResource.getValueMap();
-            if (properties.containsKey("jcr:data")) {
-                imagePath = childPage.getPath() + "/jcr:content/root/container/responsivegrid/image/file";
-                LOG.debug("Image found at: {}", imagePath);
-            } else {
-                LOG.warn("No image found under root/container/responsivegrid/image/file/jcr:content for page: {}", childPage.getPath());
-            }
-        } else {
-            LOG.warn("Image resource not found for page: {}", childPage.getPath());
-        }
-
-        return imagePath;
-    }
+//    private String getImagePath(Page childPage) {
+//        String imagePath = DEFAULT_IMAGE;
+//        Resource imageResource = childPage.getContentResource("root/container/responsivegrid/image/file/jcr:content");
+//
+//        if (imageResource != null) {
+//            ValueMap properties = imageResource.getValueMap();
+//            if (properties.containsKey("jcr:data")) {
+//                imagePath = childPage.getPath() + "/jcr:content/root/container/responsivegrid/image/file";
+//                LOG.debug("Image found at: {}", imagePath);
+//            } else {
+//                LOG.warn("No image found under root/container/responsivegrid/image/file/jcr:content for page: {}", childPage.getPath());
+//            }
+//        } else {
+//            LOG.warn("Image resource not found for page: {}", childPage.getPath());
+//        }
+//
+//        return imagePath;
+//    }
 
     private String getFormattedDate(Page childPage) {
         Calendar createdDateCal = childPage.getProperties().get("jcr:created", Calendar.class);

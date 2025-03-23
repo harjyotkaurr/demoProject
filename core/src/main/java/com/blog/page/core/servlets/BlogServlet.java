@@ -1,6 +1,7 @@
 package com.blog.page.core.servlets;
 
 
+//import com.blog.page.core.util.Util;
 import com.blog.page.core.util.Util;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -19,6 +20,8 @@ import javax.annotation.Nonnull;
 import javax.servlet.Servlet;
 import java.io.IOException;
 import java.util.Iterator;
+
+//import static com.blog.page.core.util.Util.getImagePath;
 
 //import static com.blog.page.core.util.Util.getImagePath;
 
@@ -56,7 +59,7 @@ public class BlogServlet extends SlingSafeMethodsServlet {
                     blogObject.addProperty("description", childPage.getProperties().get("jcr:description", "No Description"));
                     blogObject.addProperty("date", childPage.getProperties().get("jcr:created", String.class));
                     blogObject.addProperty("link", childPage.getPath() + ".html");
-                    blogObject.addProperty("image", Util.getImagePath(childPage));
+                    blogObject.addProperty("image", Util.getImagePath(request, childPage));
 
                     blogArray.add(blogObject);
                 }
